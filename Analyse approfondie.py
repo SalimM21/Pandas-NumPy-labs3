@@ -13,8 +13,6 @@ print(df.dtypes)
 print(df.isnull().sum())
 
 # Partie 2 : Nettoyage des données
-print("\n===============Nettoyage des données :===============")
-
 # Remplacer les valeurs manquantes dans la colonne Age par la médiane de cette colonne
 df['Age']=df['Age'].fillna(df['Age'].median())
 print(df ['Age'])
@@ -23,7 +21,6 @@ print(df ['Age'])
 df['salary']=df['Salary'].fillna(df.groupby('Department')['Salary'].transform('mean'))
 print(df['Salary'])
 
-print("\n==============================")
 # Convertir toutes les colonnes numériques en type approprié (float ou int)
 for col in df.select_dtypes(include=['number']).columns:
     if (df[col] % 1 == 0).all():  # Si toutes les valeurs sont des entiers
